@@ -1,0 +1,50 @@
+﻿@model FormModule.Models.ViewModel.LoginSignUpViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout_LogIn.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-4 border border-primary rounded">
+
+            <div class="text-center">
+                <a class="btn btn-primary" asp-action="SignUp" asp-controller="Account">Sign Up</a>
+            </div>
+            <h6 class="text-success text-center">@TempData["SuccessMessage"]</h6>
+            <div class="card-body">
+                <form method="post" asp-action="Login">
+                    <div class="form-group">
+                        <label asp-for="UserName"></label>
+                        <input type="text" asp-for="UserName" class="form-control" placeholder="Enter name" autocomplete="off" />
+                        <span class="text-danger">@TempData["errorUsername"]</span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input type="text" asp-for="Password" class="form-control" placeholder="Enter password" autocomplete="off" />
+                        <span class="text-danger">@TempData["errorPassword"]</span>
+                    </div>
+                   
+                    <div class="form-group">
+
+                        <input type="submit" class="btn btn-sm btn-outline-success float-right" value="Log In" />
+                    </div>
+                   
+                </form>
+                <div class="form-center">
+                  <a class="text-primary"  asp-action="ForgotUsername">Forgot UserName ?</a>
+                </div>
+                <div class="form-center">
+                  <a class="text-primary" asp-action="ForgotPassword">Forgot Password ?</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
